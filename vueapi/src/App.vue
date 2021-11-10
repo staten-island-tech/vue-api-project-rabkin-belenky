@@ -9,16 +9,24 @@
 </template>
 <script>
 export default {
-  setup () {
+ created(){
+   fetch('https://rickandmortyapi.com/api/character')
+   .then(response => { console.log(response)
+  
+  });
 
-    return {}
-  }
+ },
+ async rickApi() {
+    let url = 'https://rickandmortyapi.com/api/character';
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
 }
+};
 </script>
-
-<style lang="scss" scoped>
-
-</style>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
