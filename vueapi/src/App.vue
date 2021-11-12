@@ -10,21 +10,23 @@
 <script>
 export default {
  created(){
-   fetch('https://rickandmortyapi.com/api/character')
+   fetch('https://rickandmortyapi.com/api/episode')
+       .then(response => {response.json})
    .then(response => { console.log(response)
-  
+
   });
 
  },
- async rickApi() {
-    let url = 'https://rickandmortyapi.com/api/character';
-    try {
-        let res = await fetch(url);
-        return await res.json();
-    } catch (error) {
-        console.log(error);
-    }
-}
+//  async rickApi() {
+//     let url = 'https://rickandmortyapi.com/api/episode';
+//     try {
+//         let res = await fetch(url);
+//         return await res.json();
+//     } catch (error) {
+//         alert(error);
+//     }
+// }
+
 };
 </script>
 <style>
