@@ -17,15 +17,15 @@ export default {
   });
 
  },
-//  async rickApi() {
-//     let url = 'https://rickandmortyapi.com/api/episode';
-//     try {
-//         let res = await fetch(url);
-//         return await res.json();
-//     } catch (error) {
-//         alert(error);
-//     }
-// }
+ async rickApi() {
+    let url = 'https://rickandmortyapi.com/api/episode';
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        alert(error);
+    }
+}
 
 };
 </script>
