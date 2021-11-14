@@ -3,31 +3,27 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <button class="databtn" @click="episodeFetch">Data</button>
     </div>
     <router-view />
   </div>
 </template>
 <script>
 export default {
- created(){
+  methods: {
+ episodeFetch() {
    fetch('https://rickandmortyapi.com/api/episode')
-       .then(response => {response.json})
-   .then(response => { console.log(response)
-
-  });
-
- },
- async rickApi() {
-    let url = 'https://rickandmortyapi.com/api/episode';
-    try {
-        let res = await fetch(url);
-        return await res.json();
-    } catch (error) {
-        alert(error);
-    }
+       .then((response) => {
+         if (response.ok) {
+            return response.json();
+         }
+       })
+       .then((data) => {
+         console.log(data);
+       }
+       )},
+  },
 }
-
-};
 </script>
 <style>
 #app {
@@ -37,6 +33,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 
 #nav {
   padding: 30px;
@@ -49,5 +46,18 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.databtn {
+  position: relative;
+  height: 3rem;
+  padding: 1rem;
+  margin-right: 3rem;
+  display: flex;
+  background-color: purple;
+  color: gold;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  border-radius: 1.5rem;
 }
 </style>
