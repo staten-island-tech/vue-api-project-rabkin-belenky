@@ -4,12 +4,24 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <button class="databtn" @click="episodeFetch">Data</button>
+      <button class="databtn" @click="characterFetch">Data2</button>
+    </div>
+    <h1 class="header">{{title}}</h1>
+    <div class="grid">
+      <div class="portraits">
+
+      </div>
     </div>
     <router-view />
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return{ 
+    title: "Rick and Morty"
+    }
+  },
   methods: {
  episodeFetch() {
    fetch('https://rickandmortyapi.com/api/episode')
