@@ -9,7 +9,6 @@
     <h1 class="header">{{title}}</h1>
     <div class="grid">
       <div class="portraits">
-
       </div>
     </div>
     <router-view />
@@ -24,7 +23,7 @@ export default {
   },
   methods: {
  episodeFetch() {
-   fetch('https://rickandmortyapi.com/api/episode')
+   fetch("https://rickandmortyapi.com/api/character/avatar/1.jpeg")
        .then((response) => {
          if (response.ok) {
             return response.json();
