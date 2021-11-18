@@ -2,7 +2,6 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
       <button class="databtn" @click="episodeFetch">Data</button>
       <button class="databtn" @click="characterFetch">Data2</button>
     </div>

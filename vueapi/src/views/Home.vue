@@ -1,13 +1,12 @@
 <template>
   <div class="home">
-    <episodeList />
+    <episodeList/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 
-import episodeList from "../views/About.vue";
+import episodeList from "../components/episodeList.vue";
 export default {
       name: "Home",
       components: {
