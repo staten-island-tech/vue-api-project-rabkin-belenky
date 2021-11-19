@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <ul class="episode-table">
+      <li class="episode-list-item"></li>
+    </ul>
   </div>
 </template>
 
