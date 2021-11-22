@@ -1,9 +1,9 @@
 import Home from "../views/Home.vue";
-import episodeList from "../components/episodeList";
+import characterGrid from "../components/characterGrid";
 
 const routes = [
     { path: "/", component: Home },
-    { path: "/episodeList", component: episodeList },
+    { path: "/characterGrid", component: characterGrid },
 ];
 
 export default routes;

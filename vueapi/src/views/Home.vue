@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <episodeList/>
+    <characterGrid/>
   </div>
 </template>
 
 <script>
 
-import episodeList from "../components/episodeList.vue";
+import characterGrid from "../components/characterGrid.vue";
 export default {
       name: "Home",
       components: {
-        episodeList,
+        characterGrid,
       },
 };
 </script>

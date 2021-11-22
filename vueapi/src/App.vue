@@ -21,7 +21,7 @@ export default {
     }
   },
   methods: {
- episodeFetch() {
+ /*episodeFetch() {
    fetch("https://rickandmortyapi.com/api/character/avatar/1.jpeg")
        .then((response) => {
          if (response.ok) {
@@ -31,7 +31,7 @@ export default {
        .then((data) => {
          console.log(data);
        }
-       )},
+       )},*/
   },
 }
 </script>
