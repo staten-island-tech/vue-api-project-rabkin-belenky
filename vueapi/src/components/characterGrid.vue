@@ -3,8 +3,9 @@
     <ul class="episode-table">
       <li class="episode-list-item"></li>
       <h2>{{id.name}}</h2>
-      <img v-bind:src =  "id.image" >
-
+      <div class="character-img" v-for="image in id" :key="image" @hover="displayData(name)"> 
+        <img v-bind:src =  "id.image" >
+      </div>
     </ul>
     <p></p>
   </div>
@@ -39,7 +40,10 @@
      },
      displayImage() {
 
-     }
+     },
+    displayData(name) {
+      this.image = this.name[name];
+    },
   } 
   }
  
