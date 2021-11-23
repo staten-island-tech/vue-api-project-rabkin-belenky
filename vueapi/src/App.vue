@@ -15,6 +15,9 @@
 </template>
 <script>
 export default {
+  props: [
+      "id", "name", "status", "species"
+    ],
   data() {
     return{ 
     title: "Rick and Morty"
