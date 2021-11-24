@@ -2,9 +2,12 @@
   <div class="about">
     <ul class="episode-table">
       <li class="episode-list-item"></li>
-      <h2>{{id.name}}</h2>
-      <div class="character-img" v-for="image in id" :key="image" @hover="displayData(name)"> 
-        <img v-bind:src =  "id.image" >
+        <!-- <h2>{{id.name}}</h2> -->
+      <div v-if="active">
+        <h2>{{id.name}}</h2>
+      </div>
+      <div class="character-img" v-on:mouseover="active = !active">
+        <img v-bind:src = "id.image">
       </div>
     </ul>
     <p></p>
@@ -15,13 +18,15 @@
   export default {
     name: "characterGrid",
     data() {
+      active: false
       return {
         id:{ image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
         name: 'Rick Sanchez',
         status: 'alive',
         species: 'human',
-        }
-      }
+        },
+      },
+  
     },
     
     methods: {
@@ -41,9 +46,9 @@
      displayImage() {
 
      },
-    displayData(name) {
-      this.image = this.name[name];
-    },
+    mouseOver: function(){
+            this.active = !this.active;   
+        }
   } 
   }
  

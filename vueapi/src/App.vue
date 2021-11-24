@@ -24,17 +24,7 @@ export default {
     }
   },
   methods: {
- /*episodeFetch() {
-   fetch("https://rickandmortyapi.com/api/character/avatar/1.jpeg")
-       .then((response) => {
-         if (response.ok) {
-            return response.json();
-         }
-       })
-       .then((data) => {
-         console.log(data);
-       }
-       )},*/
+ 
   },
 }
 </script>
