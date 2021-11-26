@@ -1,35 +1,30 @@
 <template>
-    <div class="about">
-    <ul class="episode-table">
-      <li class="episode-list-item"></li>
-        <!-- <h2>{{id.name}}</h2> -->
-      <div v-if="active">
-        <h2>{{name}}</h2>
+      <div class="character-img" >
+          <span v-on:click="changePicture()">
+            <img v-if="showPicture"  v-bind:src = "image">
+            <div v-else>
+                <p>Name: {{name}}</p>
+                <p>Status: {{status}}</p>
+                <p>Species: {{species}}</p>
+            </div>
+          </span>
       </div>
-      <div class="character-img" v-on:mouseover="active = !active">
-        <img v-bind:src = "image">
-      </div>
-      </ul>
-    <p></p>
-  </div>
 </template>
 
 <script>
 export default {
     props: ['name','image', 'status', 'species'],
     data() {
-      
-        return {
-        // active: false,
-        // id:{ image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-        // name: 'Rick Sanchez',
-        // status: 'alive',
-        // species: 'human',
-       // },
+      return {
+        showPicture: true
       };
-  
     },
-    
+    methods: {
+        changePicture() {
+            this.showPicture = !this.showPicture;
+
+        }
+    }
 }
 </script>
 <style>
@@ -53,18 +48,5 @@ export default {
 
 #nav a.router-link-exact-active {
   color: #42b983;
-}
-.databtn {
-  position: relative;
-  height: 3rem;
-  padding: 1rem;
-  margin-right: 3rem;
-  display: flex;
-  background-color: purple;
-  color: gold;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  border-radius: 1.5rem;
 }
 </style>

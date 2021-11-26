@@ -1,27 +1,35 @@
 <template>
 <form>
     <div class="forms">
-      <label for="type-question">What do you want to search by?</label>
-      <select id="type-question" name="type-question">
-        <option value="Name"> Name</option>
-        <option value="Episode"> Episode</option>
-        <option value="Species"> Species</option>
-        <option value="Status"> Status</option>
+      <label for="type-question"> Search by </label>
+      <select id="type-question" name="type-question" v-model="typeQuestion"> 
+        <option value="name" > Name </option>
+        <option value="episode"> Episode</option>
+        <option value="species"> Species</option>
+        <option value="status"> Status</option>
       </select>
     </div>
      <div class="forms">
       <label for="search-field">Search</label>
-      <input id="search-field" name="search-field" type="text" />
+      <input id="search-field" name="search-field" type="text" v-model="searchField"/>
     </div>
-     <button>Submit </button>
+     <button type="button" @click="submitSearch()">Submit </button>
 </form>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+           typeQuestion: 'Name',
+           searchField: '',
+        }
+    },
     methods: {
         submitSearch() {
-
+            console.log(this.searchField);
+            this.$router.push('/characterGrid/'+ this.typeQuestion + '/' + this.searchField);
+            
         }
     }
 }

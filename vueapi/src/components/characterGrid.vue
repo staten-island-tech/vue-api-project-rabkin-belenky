@@ -1,6 +1,6 @@
 <template>
 <div>
-  <display-character   v-for = "character in characters"
+  <display-character   v-for = "character in showCharacters"
   :key="character.id"
   :name="character.name"
   :image="character.image"
@@ -19,9 +19,11 @@
     components: {
       DisplayCharacter
     },
+    props:['type', 'field'],
     data() {
     return {
-      characters:[]
+      characters:[],
+      showCharacters: [],
     };
   },
     
@@ -37,31 +39,45 @@
        .then((data) => {
          this.characters = data.results;
          console.log(this.characters);
+         console.log(this.type);
         },
-      
-       )
+       ).catch((error) => {
+         alert(error);
+         console.log(error)
+       })
        
      },
-     characterFetch(){
-        console.log(this.characters);
-        console.log(this.characters[0].name)
-
-      },
-     displayImage() {
-          console.log(this.character);
+      characterstoShow(){
+      console.log(this.type, this.field)
+       if (this.type ==='all'&& this.field==='all'){
+         this.showCharacters = this.characters;
         }
+       else{
+         for (const someCharacter of this.characters) {
+           if (someCharacter[this.type] === this.field) {
+             this.showCharacters.push(someCharacter);
+             console.log(someCharacter);
+           }
+         }
+       } 
+     },
+     },
+    
+     
+     watch: {
+        characters(newvalue){
+            console.log(newvalue);
+            this.characterstoShow();
+        },
+        type(newvalue){
+            console.log(newvalue);
+            console.log('nothing');
+        },
 
      },
       mounted() {
         this.characterInfo();
       },
-    mouseOver: function(){
-            this.active = !this.active;   
-            
-  }, 
-  updated(){
-    console.log(this.character);
-  }
   }
  
   

@@ -4,7 +4,7 @@ import search from "../components/Search"
 
 const routes = [
     { path: "/", component: Home },
-    { path: "/characterGrid", component: characterGrid },
+    { path: "/characterGrid/:type/:field", component: characterGrid, props: true },
     { path: "/search", component: search},
 ];
 
