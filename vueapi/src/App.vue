@@ -1,31 +1,63 @@
+
 <template>
+  
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <button class="databtn" @click="episodeFetch">Data</button>
-      <button class="databtn" @click="characterFetch">Data2</button>
-    </div>
-    <h1 class="header">{{title}}</h1>
-    <div class="grid">
-      <div class="portraits">
-      </div>
-    </div>
-    <router-view />
+    <nav-bar></nav-bar>
+        <router-view />
+        
   </div>
 </template>
+
+
 <script>
+import NavBar from './components/NavBar.vue';
 export default {
+  components:{
+    NavBar
+  },
+  
+  
   props: [
       "id", "name", "status", "species"
     ],
   data() {
     return{ 
-    title: "Rick and Morty"
+    title: "Rick and Morty",
+    characters:[], 
+    test: 'test'
+    };
+  },
+  provide() {
+    return {
+      chara: this.characters
     }
   },
   methods: {
- 
+    characterInfo() {
+       fetch("https://rickandmortyapi.com/api/character")
+       .then((response) => {
+         if (response.ok) {
+            return response.json();
+         }
+       })
+       .then((data) => {
+         this.characters = data.results;
+         console.log(this.characters);
+        },
+      
+       )
+       
+     },
+     characterFetch(){
+        console.log(this.characters);
+        console.log(this.characters[0].name)
+
+      },
+      
   },
+  mounted() {
+        this.characterInfo();
+      }
 }
 </script>
 <style>

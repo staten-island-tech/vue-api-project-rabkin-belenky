@@ -1,33 +1,30 @@
 <template>
-  <div class="about">
-    <ul class="episode-table">
-      <li class="episode-list-item"></li>
-        <!-- <h2>{{id.name}}</h2> -->
-      <div v-if="active">
-        <h2>{{id.name}}</h2>
-      </div>
-      <div class="character-img" v-on:mouseover="active = !active">
-        <img v-bind:src = "id.image">
-      </div>
-    </ul>
-    <p></p>
-  </div>
+<div>
+  <display-character   v-for = "character in characters"
+  :key="character.id"
+  :name="character.name"
+  :image="character.image"
+  :status="character.status"
+  :species="character.species"
+  
+
+  ></display-character>
+</div>
+  
 </template>
 
 <script>
+ import DisplayCharacter from './DisplayCharacter.vue';
   export default {
-    name: "characterGrid",
-    data() {
-      active: false
-      return {
-        id:{ image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-        name: 'Rick Sanchez',
-        status: 'alive',
-        species: 'human',
-        },
-      },
-  
+    components: {
+      DisplayCharacter
     },
+    data() {
+    return {
+      characters:[]
+    };
+  },
+    
     
     methods: {
      characterInfo() {
@@ -38,18 +35,33 @@
          }
        })
        .then((data) => {
-         console.log(data);
-       }
+         this.characters = data.results;
+         console.log(this.characters);
+        },
+      
        )
        
      },
+     characterFetch(){
+        console.log(this.characters);
+        console.log(this.characters[0].name)
+
+      },
      displayImage() {
+          console.log(this.character);
+        }
 
      },
+      mounted() {
+        this.characterInfo();
+      },
     mouseOver: function(){
             this.active = !this.active;   
-        }
-  } 
+            
+  }, 
+  updated(){
+    console.log(this.character);
+  }
   }
  
   
