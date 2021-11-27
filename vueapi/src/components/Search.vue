@@ -13,7 +13,7 @@
       <label for="search-field">Search</label>
       <input id="search-field" name="search-field" type="text" v-model="searchField"/>
     </div>
-     <button type="button" @click="submitSearch()">Submit </button>
+     <button class="submit-button" type="button" @click="submitSearch()">Submit </button>
 </form>
 </template>
 
@@ -34,3 +34,15 @@ export default {
     }
 }
 </script>
+<style>
+
+.forms {
+  margin: 2rem;
+}
+
+.submit-button {
+  width: 4rem;
+  height: 2rem;
+  font-size: 1rem;
+}
+</style>

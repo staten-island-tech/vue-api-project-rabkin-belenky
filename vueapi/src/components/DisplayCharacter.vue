@@ -1,15 +1,14 @@
 <template>
-      <div class="character-img" >
+        <div class="character-img" >
           <span v-on:click="changePicture()">
             <img v-if="showPicture"  v-bind:src = "image">
             <div class="character-info" v-else>
-                <img class="character-info-img" v-bind:src = "image">
                 <p>Name: {{name}}</p>
                 <p>Status: {{status}}</p>
                 <p>Species: {{species}}</p>
             </div>
           </span>
-      </div>
+        </div>
 </template>
 
 <script>
@@ -37,11 +36,23 @@ export default {
   color: #2c3e50;
 }
 
+.character-img {
+  height: 20vw;
+  width: 20vw;
+  margin: 0 auto;
+  position: relative;
+  margin: 2rem auto;
+  align-content: center;
+}
+
 .character-info {
-  border: 1rem solid;
   width: 300px;
   height: 300px;
   align-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #11005c;
+  border: 0.5rem solid #11005c;
 }
 
 .character-info-img {
@@ -60,4 +71,5 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
