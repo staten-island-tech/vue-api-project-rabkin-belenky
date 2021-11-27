@@ -2,7 +2,8 @@
       <div class="character-img" >
           <span v-on:click="changePicture()">
             <img v-if="showPicture"  v-bind:src = "image">
-            <div v-else>
+            <div class="character-info" v-else>
+                <img class="character-info-img" v-bind:src = "image">
                 <p>Name: {{name}}</p>
                 <p>Status: {{status}}</p>
                 <p>Species: {{species}}</p>
@@ -36,6 +37,16 @@ export default {
   color: #2c3e50;
 }
 
+.character-info {
+  border: 1rem solid;
+  width: 300px;
+  height: 300px;
+  align-content: center;
+}
+
+.character-info-img {
+  opacity: 0.3;
+}
 
 #nav {
   padding: 30px;

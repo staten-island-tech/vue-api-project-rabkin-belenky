@@ -95,4 +95,9 @@ export default {
   align-items: center;
   border-radius: 1.5rem;
 }
+
+body {
+  background-color: rgb(48, 131, 255);
+}
+
 </style>
