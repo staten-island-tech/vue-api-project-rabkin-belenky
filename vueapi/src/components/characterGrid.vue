@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="grid">
   <display-character   v-for = "character in showCharacters"
   :key="character.id"
   :name="character.name"
@@ -84,5 +84,9 @@
 </script>
 
 <style>
-
+.grid {
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
   </style>

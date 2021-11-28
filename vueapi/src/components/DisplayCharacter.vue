@@ -3,9 +3,10 @@
           <span v-on:click="changePicture()">
             <img v-if="showPicture"  v-bind:src = "image">
             <div class="character-info" v-else>
-                <p>Name: {{name}}</p>
-                <p>Status: {{status}}</p>
-                <p>Species: {{species}}</p>
+                <img class="character-info-img" v-bind:src = "image">
+                <p class="character-info-name">Name: {{name}}</p>
+                <p class="character-info-status">Status: {{status}}</p>
+                <p class="character-info-species">Species: {{species}}</p>
             </div>
           </span>
         </div>
@@ -51,12 +52,34 @@ export default {
   align-content: center;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #11005c;
-  border: 0.5rem solid #11005c;
+  color: white;
+  border: 0.5rem solid white;
+  position: absolute;
+}
+
+.character-info-name {
+  width: 300px;
+  position: absolute;
+  top: .5rem;
+  text-align: center;
+}
+
+.character-info-species {
+  width: 300px;
+  position: absolute;
+  top: 5rem;
+  text-align: center;
+}
+
+.character-info-status {
+  width: 300px;
+  position: absolute;
+  top: 10rem;
+  text-align: center;
 }
 
 .character-info-img {
-  opacity: 0.3;
+  opacity: 0.45;
 }
 
 #nav {
