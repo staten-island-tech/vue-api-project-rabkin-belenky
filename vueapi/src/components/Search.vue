@@ -4,7 +4,6 @@
       <label for="type-question"> Search by </label>
       <select id="type-question" name="type-question" v-model="typeQuestion"> 
         <option value="name" > Name </option>
-        <option value="episode"> Episode</option>
         <option value="species"> Species</option>
         <option value="status"> Status</option>
       </select>
@@ -27,7 +26,11 @@ export default {
     },
     methods: {
         submitSearch() {
-            console.log(this.searchField);
+            console.log('something',this.searchField, this.typeQuestion);
+            if (this.searchField===''){
+              console.log('empty');
+              this.searchField = '!!!@@@';
+            }
             this.$router.push('/characterGrid/'+ this.typeQuestion + '/' + this.searchField);
             
         }
