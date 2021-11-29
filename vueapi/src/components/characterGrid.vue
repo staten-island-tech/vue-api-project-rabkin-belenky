@@ -12,7 +12,7 @@
   ></display-character>
   </div>
   <div v-else>
-    <p>{{errorMessage}}</p>
+    <p class="error-message">{{errorMessage}}</p>
   </div>
 </div>
   
@@ -54,11 +54,11 @@
      },
       characterstoShow(){
       if(this.field === '!!!@@@hjfhjgrhjfghjfgbjkfvhjfghjdfghjogsdhik') {
-          this.errorMessage = 'Your search is empty!';
+          this.errorMessage = 'Your search is empty';
           this.characterFound = false;
         }
       else if (this.type === 'Name') {
-          this.errorMessage = 'Your search by is empty!';
+          this.errorMessage = 'Your search is empty';
           this.characterFound = false;
         }    
       else if (this.type ==='all'&& this.field==='all'){
@@ -100,5 +100,19 @@
   display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
+}
+
+.error-message {
+  font-size: 2rem;
+  text-shadow: 0px 0px 5px #2c3e50;
+  font-weight: bold;
+  color: white;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(214, 36, 36, 0.75)
+
 }
   </style>

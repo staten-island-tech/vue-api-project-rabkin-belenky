@@ -1,5 +1,5 @@
 <template>
-<form>
+<form class="forms-container">
     <div class="forms">
       <label for="type-question"> Search by </label>
       <select id="type-question" name="type-question" v-model="typeQuestion"> 
@@ -42,7 +42,16 @@ export default {
 .forms {
   margin: 2rem;
   font-weight: bold;
-  text-shadow: 0px 0px 5px white;
+  text-shadow: 0px 0px 5px black;
+  color: white;
+}
+
+.forms-container {
+   background: rgba(209, 68, 186, 0.75);
+   width: fit-content;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top:1rem;
 }
 
 .submit-button {

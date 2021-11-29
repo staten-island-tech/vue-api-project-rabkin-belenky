@@ -104,7 +104,7 @@ body {
   text-shadow: 0px 0px 5px white;
   font-weight: bold;
   color: #2c3e50;
-  bottom: 5px;
+
 }
 
 </style>

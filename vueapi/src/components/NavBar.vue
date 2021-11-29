@@ -21,7 +21,7 @@
 header {
   width: 100%;
   height: 5rem;
-  background-color: #11005c;
+  background-color: rgb(17, 0, 92, 0.75);
 }
 
 nav {
