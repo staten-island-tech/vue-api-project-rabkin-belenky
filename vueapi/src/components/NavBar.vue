@@ -17,6 +17,7 @@
 </template>
 
 <style scoped>
+
 header {
   width: 100%;
   height: 5rem;
@@ -25,6 +26,7 @@ header {
 
 nav {
   height: 100%;
+  width: 100%;
 }
 
 ul {
@@ -49,6 +51,8 @@ a {
   color: white;
   padding: 0.5rem 1.5rem;
   display: inline-block;
+  font-weight: bold;
+  
 }
 
 a:hover,
@@ -57,5 +61,6 @@ a.active {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
+
 }
 </style>

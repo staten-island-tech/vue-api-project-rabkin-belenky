@@ -2,7 +2,7 @@
 <template>
   
   <div id="app">
-    <nav-bar></nav-bar>
+    <nav-bar class="navbar"></nav-bar>
         <router-view />
     <hi class="title">RICK AND MORTY</hi>
   </div>
