@@ -1,6 +1,7 @@
 <template>
-<div class="grid">
-  <display-character   v-for = "character in showCharacters"
+<div >
+  <div v-if="characterFound" class ="grid">
+  <display-character  v-for = "character in showCharacters"
   :key="character.id"
   :name="character.name"
   :image="character.image"
@@ -9,6 +10,10 @@
   
 
   ></display-character>
+  </div>
+  <div v-else>
+    <p>{{errorMessage}}</p>
+  </div>
 </div>
   
 </template>
@@ -24,6 +29,8 @@
     return {
       characters:[],
       showCharacters: [],
+      characterFound: true,
+      errorMessage: '',
     };
   },
     
@@ -39,8 +46,7 @@
        .then((data) => {
          this.characters = data.results;
          console.log(this.characters);
-         console.log(this.type);
-        },
+         },
        ).catch((error) => {
          alert(error);
          console.log(error)
@@ -48,31 +54,41 @@
        
      },
       characterstoShow(){
-      console.log(this.type, this.field)
-       if (this.type ==='all'&& this.field==='all'){
+      if(this.field === '!!!@@@hjfhjgrhjfghjfgbjkfvhjfghjdfghjogsdhik') {
+          this.errorMessage = 'Your search is empty!';
+          this.characterFound = false;
+        }
+      else if (this.type === 'Name') {
+          this.errorMessage = 'Your search by is empty!';
+          this.characterFound = false;
+        }    
+      else if (this.type ==='all'&& this.field==='all'){
          this.showCharacters = this.characters;
         }
-       else{
+      else {
          for (const someCharacter of this.characters) {
-           if (someCharacter[this.type] === this.field) {
+           if (someCharacter[this.type].toLowerCase().includes(this.field.toLowerCase())) {
              this.showCharacters.push(someCharacter);
              console.log(someCharacter);
            }
          }
-       } 
+       }
+        
+        if (!this.showCharacters.length && this.characterFound) {
+          this.errorMessage = 'Nothing was found';
+          this.characterFound = false;
+          console.log('Nothing');
+        }
      },
      },
     
      
      watch: {
         characters(newvalue){
-            console.log(newvalue);
+            console.log('test', newvalue);
             this.characterstoShow();
         },
-        type(newvalue){
-            console.log(newvalue);
-            console.log('nothing');
-        },
+        
 
      },
       mounted() {
