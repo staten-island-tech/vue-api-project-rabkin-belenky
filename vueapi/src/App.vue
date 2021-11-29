@@ -4,10 +4,9 @@
   <div id="app">
     <nav-bar></nav-bar>
         <router-view />
-    <button @click="playAudio()" class="audiobtn">Rick and Morty</button>
+    <hi class="title">RICK AND MORTY</hi>
   </div>
 </template>
-
 
 <script>
 import NavBar from './components/NavBar.vue';
@@ -54,7 +53,6 @@ export default {
         console.log(this.characters[0].name)
 
       },
-      
   },
   mounted() {
         this.characterInfo();
@@ -99,6 +97,14 @@ export default {
 
 body {
   background: url("./assets/rickandmortybackground.png") no-repeat center center fixed; 
+}
+
+.title {
+  font-size: 10rem;
+  text-shadow: 0px 0px 5px white;
+  font-weight: bold;
+  color: #2c3e50;
+  bottom: 5px;
 }
 
 </style>
