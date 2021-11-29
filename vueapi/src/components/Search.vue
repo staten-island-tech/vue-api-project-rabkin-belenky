@@ -38,6 +38,8 @@ export default {
 
 .forms {
   margin: 2rem;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px white;
 }
 
 .submit-button {

@@ -97,7 +97,7 @@ export default {
 }
 
 body {
-  background-color: rgb(48, 131, 255);
+  background: url("./assets/rickandmortybackground.png") no-repeat center center fixed; 
 }
 
 </style>

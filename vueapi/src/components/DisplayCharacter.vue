@@ -1,7 +1,7 @@
 <template>
         <div class="character-img" >
           <span v-on:click="changePicture()">
-            <img v-if="showPicture"  v-bind:src = "image">
+            <img class="character-img-img" v-if="showPicture"  v-bind:src = "image">
             <div class="character-info" v-else>
                 <img class="character-info-img" v-bind:src = "image">
                 <p class="character-info-name">Name: {{name}}</p>
@@ -46,15 +46,22 @@ export default {
   align-content: center;
 }
 
+.character-img-img {
+  border: 0.5rem solid #2c3e50;
+  border-radius: 25px;
+}
+
 .character-info {
   width: 300px;
   height: 300px;
   align-content: center;
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
-  border: 0.5rem solid white;
+  color: #2c3e50;
+  border: 0.5rem solid #2c3e50;
   position: absolute;
+  text-shadow: 0px 0px 5px white;
+  border-radius: 25px;
 }
 
 .character-info-name {
@@ -80,6 +87,7 @@ export default {
 
 .character-info-img {
   opacity: 0.45;
+  border-radius: 18px;
 }
 
 #nav {
