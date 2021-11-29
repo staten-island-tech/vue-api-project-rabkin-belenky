@@ -4,7 +4,7 @@
   <div id="app">
     <nav-bar></nav-bar>
         <router-view />
-        
+    <button @click="playAudio()" class="audiobtn">Rick and Morty</button>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     return{ 
     title: "Rick and Morty",
     characters:[], 
-    test: 'test'
+    test: 'test',
     };
   },
   provide() {
@@ -32,6 +32,7 @@ export default {
       chara: this.characters
     }
   },
+
   methods: {
     characterInfo() {
        fetch("https://rickandmortyapi.com/api/character")
