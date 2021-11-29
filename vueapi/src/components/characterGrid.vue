@@ -45,7 +45,6 @@
        })
        .then((data) => {
          this.characters = data.results;
-         console.log(this.characters);
          },
        ).catch((error) => {
          alert(error);
@@ -69,7 +68,6 @@
          for (const someCharacter of this.characters) {
            if (someCharacter[this.type].toLowerCase().includes(this.field.toLowerCase())) {
              this.showCharacters.push(someCharacter);
-             console.log(someCharacter);
            }
          }
        }
@@ -77,15 +75,13 @@
         if (!this.showCharacters.length && this.characterFound) {
           this.errorMessage = 'Nothing was found';
           this.characterFound = false;
-          console.log('Nothing');
         }
      },
      },
     
      
      watch: {
-        characters(newvalue){
-            console.log('test', newvalue);
+        characters(){
             this.characterstoShow();
         },
         
